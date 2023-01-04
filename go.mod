@@ -1,4 +1,4 @@
-module kanji-jwt
+module github.com/Hanekawa-chan/kanji-jwt
 
 go 1.19
 
