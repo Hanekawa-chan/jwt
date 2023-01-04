@@ -5,7 +5,6 @@ import (
 	"errors"
 	"github.com/golang-jwt/jwt"
 	"github.com/google/uuid"
-	"os"
 )
 
 type Generator struct {
