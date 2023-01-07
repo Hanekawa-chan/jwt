@@ -48,16 +48,12 @@ func (g *Generator) ParseToken(token string) (jwt.MapClaims, error) {
 	return claims, nil
 }
 
-func GetUserID(ctx context.Context, secretKey string) (uuid.UUID, error) {
+func GetUserID(ctx context.Context, g *Generator) (uuid.UUID, error) {
 	jwtToken := ctx.Value("jwt").(string)
 	if len(jwtToken) == 0 {
 		return uuid.UUID{}, ErrIsEmpty
 	}
 
-	g, err := New(secretKey)
-	if err != nil {
-		return uuid.UUID{}, err
-	}
 	claims, err := g.ParseToken(jwtToken)
 	if err != nil {
 		return uuid.UUID{}, err
