@@ -1,4 +1,4 @@
-package kanji_jwt
+package jwt
 
 import (
 	"context"
