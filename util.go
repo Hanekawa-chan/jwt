@@ -6,7 +6,7 @@ import (
 )
 
 // GetUserId gets user id from jwt inside context
-func GetUserId(ctx context.Context, g *Generator) (uuid.UUID, error) {
+func GetUserId(ctx context.Context, g IGenerator) (uuid.UUID, error) {
 	jwtToken := ctx.Value("access_token").(string)
 	if len(jwtToken) == 0 {
 		return uuid.UUID{}, ErrIsEmpty

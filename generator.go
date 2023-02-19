@@ -4,6 +4,11 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
+type IGenerator interface {
+	Generate(claims map[string]interface{}) (string, error)
+	ParseToken(token string) (jwt.MapClaims, error)
+}
+
 type Generator struct {
 	secretKey string
 }
